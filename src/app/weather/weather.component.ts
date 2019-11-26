@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import {OpenWeatherService} from '../open-weather.service';
 
 
@@ -10,7 +10,9 @@ import {OpenWeatherService} from '../open-weather.service';
 })
 export class WeatherComponent implements OnInit {
   public weatherSearchForm: FormGroup;
-  public weatherData: any
+  public weatherData: any;
+
+  mode = new FormControl('over');       // Sidenav Mode
 
   constructor(
     private formBuilder: FormBuilder,

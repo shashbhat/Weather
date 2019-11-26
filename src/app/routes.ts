@@ -6,4 +6,5 @@ export const allAppRoutes: Routes = [
         path: '',
         component: WeatherComponent
     }
+   
 ]

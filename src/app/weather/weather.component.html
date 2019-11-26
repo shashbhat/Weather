@@ -1,15 +1,17 @@
-<div class="container">
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToOpenWeather(weatherSearchForm.value)">
-                    <input class="form-control form-control-lg" type="text" placeholder="Enter city" formControlName="location">
-                    <button type="submit" class="btn btn-primary mt-1">Search</button>
-            </form>
 
-            
-        </div>
-        
-        <div class="col-md-6">
+
+<div class="container">
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToOpenWeather(weatherSearchForm.value)">
+              <input class="form-control form-control-lg" type="text" placeholder="Enter city" formControlName="location">
+              <button type="submit" class="btn btn-primary mt-1">Search</button>
+            </form>
+  
+  
+          </div>
+  
+          <div class="col-md-6">
             <h3>Weather Details:</h3>
             <p>City: {{this.weatherData?.name}}</p>
             <p>Temperature: {{this.weatherData?.main.temp}} C</p>
@@ -17,10 +19,8 @@
             <p>Temperature Max: {{this.weatherData?.main.temp_max}} C</p>
             <p>Clouds: {{this.weatherData?.clouds.all}}%</p>
             <p>Wind: {{this.weatherData?.wind.speed}}m/s</p>
+          </div>
+  
         </div>
         
-    </div>
-</div>
-
-
-
+      </div>
