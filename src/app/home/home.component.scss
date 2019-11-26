@@ -1,0 +1,12 @@
+/*Home Layout*/
+.main__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 90vh;
+    position: relative;
+    background: rgb(0,255,155);
+    background: linear-gradient(360deg, rgba(0,255,155,1) 0%, rgba(63,109,255,1) 84%);
+  }
+
