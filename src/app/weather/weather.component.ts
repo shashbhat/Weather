@@ -24,7 +24,7 @@ export class WeatherComponent implements OnInit {
     });
   }
 
-  sendToOpenWeather(formValues){
+  sendToOpenWeather(formValues) {
     this.weatherService.getWeather(formValues.location).subscribe(data => this.weatherData = data);
     console.log(this.weatherData);
   }

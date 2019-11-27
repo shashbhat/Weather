@@ -15,30 +15,19 @@
     color: #443282;
   }
   
-  .add__card-dark {
-    background: linear-gradient(to bottom, #711B86, #00057A);
-    color: white;
-  }
-  
   .card__title {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
   }
   
-  .city__illustration {
-    width: 20rem;
-  }
-  
   .body__container {
-    align-self: end;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-flow: column;
   }
-  
-  .add__icon {
-    width: 10rem;
-    margin-bottom: 1.15rem;
+
+  .fa-plus{
+    color: rgba(63,109,255,1)
   }
   
