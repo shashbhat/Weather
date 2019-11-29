@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import {OpenWeatherService} from '../open-weather.service';
+import { $ } from 'protractor';
 
 
 @Component({
@@ -27,6 +28,10 @@ export class WeatherComponent implements OnInit {
   sendToOpenWeather(formValues) {
     this.weatherService.getWeather(formValues.location).subscribe(data => this.weatherData = data);
     console.log(this.weatherData);
+  }
+
+  showWeather() {
+   document.getElementById('weather-card').style.display = 'block';
   }
 
 }
