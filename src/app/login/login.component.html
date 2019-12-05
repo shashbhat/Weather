@@ -1,6 +1,6 @@
 <div class="container mt-4" id="container">
     <div class="form-container sign-up-container">
-      <form action="#">
+      <form action="#" (ngSubmit)="signup($event)" #authform="ngForm">
         <h1>Create Account</h1>
         <div class="social-container">
     
@@ -9,25 +9,28 @@
         </div>
         <span>or use your email for registration</span>
         <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+        <input ngModel type="email"  placeholder="Email" name="email" required />
+        <input ngModel type="password" placeholder="Password" name="password" required />
         <button>Sign Up</button>
       </form>
     </div>
+
+
     <div class="form-container sign-in-container">
-      <form action="#">
+      <form action="#" (ngSubmit)="login($event)" #authform="ngForm">
         <h1>Login</h1>
         <div class="social-container">
           
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a class="social"><i class="fab fa-google-plus-g"></i></a>
          
         </div>
         <span>or use your account</span>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+        <input ngModel type="email"  placeholder="Email" name="email" required />
+        <input ngModel type="password" placeholder="Password" name="password" required />
         <a href="#" class="forgot-password">Forgot your password?</a>
         <button>Login</button>
       </form>
+
     </div>
     <div class="overlay-container">
       <div class="overlay">

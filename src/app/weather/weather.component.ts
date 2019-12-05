@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms';
-import {OpenWeatherService} from '../open-weather.service';
-import { $ } from 'protractor';
-
+import {WeatherService} from 'src/app/services/weather.service';
+import {FbService} from '../services/fb.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-weather',
@@ -12,11 +12,20 @@ import { $ } from 'protractor';
 export class WeatherComponent implements OnInit {
   public weatherSearchForm: FormGroup;
   public weatherData: any;
-
+  darkMode: boolean;
+  sub1: Subscription;
+  state: string;
+  temp: number;
+  maxTemp: number;
+  minTemp: number;
+  errorMessage: string;
+  cityName: string;
+  cityAdded = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private weatherService: OpenWeatherService
+    private weatherService: WeatherService,
+    public fb: FbService
     ) { }
 
   ngOnInit() {
@@ -34,4 +43,15 @@ export class WeatherComponent implements OnInit {
    document.getElementById('weather-card').style.display = 'block';
   }
 
+  addCity() {
+    this.fb.addCity(this.weatherData.name).subscribe(() => {
+      this.cityName = null;
+      this.maxTemp = null;
+      this.minTemp = null;
+      this.state = null;
+      this.temp = null;
+      this.cityAdded = true;
+      setTimeout(() => this.cityAdded = false, 2000);
+    });
+  }
 }

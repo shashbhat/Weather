@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FbService } from '../services/fb.service';
+import { first, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  errorMessage = '';
+  constructor(public fb: FbService, public router: Router) { }
 
   ngOnInit() {
     const signUpButton = document.getElementById('signUp');
@@ -19,7 +21,25 @@ export class LoginComponent implements OnInit {
 
     signInButton.addEventListener('click', () => container.classList.remove('right-panel-active'));
 
+
   }
 
+  login(e) {
+    this.fb.signin(e.target.email.value, e.target.password.value).pipe(first()).subscribe(() => {
+      this.router.navigateByUrl('');
+    }, (err) => {
+      this.errorMessage = err;
+      setTimeout(() => this.errorMessage = '', 2000);
+    });
+  }
+
+  signup(e) {
+    this.fb.signup(e.target.email.value, e.target.password.value).pipe(first()).subscribe(() => {
+      this.router.navigateByUrl('');
+    }, (err) => {
+      this.errorMessage = err;
+      setTimeout(() => this.errorMessage = '', 2000);
+    });
+  }
 
 }

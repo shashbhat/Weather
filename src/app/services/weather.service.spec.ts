@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OpenWeatherService } from './open-weather.service';
+import { WeatherService } from './weather.service';
 
-describe('OpenWeatherService', () => {
+describe('WeatherService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: OpenWeatherService = TestBed.get(OpenWeatherService);
+    const service: WeatherService = TestBed.get(WeatherService);
     expect(service).toBeTruthy();
   });
 });

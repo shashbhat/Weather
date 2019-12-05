@@ -4,22 +4,34 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
+import { AuthGuard } from './guard/auth.guard';
+import { AppGuard } from './guard/app.guard';
 
 export const allAppRoutes: Routes = [
     {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AppGuard]
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'weather',
-        component: WeatherComponent
+        component: WeatherComponent,
+        canActivate: [AppGuard]
     },
     {
         path: 'details',
-        component: DetailsComponent
-    }
+        component: DetailsComponent,
+        canActivate: [AppGuard]
+    },
+    {
+        path: 'search',
+        component: WeatherComponent,
+        canActivate: [AppGuard]
+    },
+    {path: '**', redirectTo: ''}
 ]

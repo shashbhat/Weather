@@ -1,16 +1,44 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {AngularFireLiteAuth, AngularFireLiteFirestore} from 'angularfire-lite';
+import {first, switchMap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FbService {
 
-  constructor() { }
+  constructor(public auth: AngularFireLiteAuth, public fs: AngularFireLiteFirestore) {
+  }
 
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });
+  isAuth() {
+    return this.auth.isAuthenticated();
+  }
+
+  signin(email, pass) {
+    return this.auth.signin(email, pass);
+  }
+
+  signup(email, pass) {
+    return this.auth.signup(email, pass);
+  }
+
+
+  getCities() {
+    return this.auth.uid().pipe(switchMap((uid) => {
+      return this.fs.read(`${uid}`);
+    }));
+  }
+
+  addCity(name: string) {
+    return this.auth.uid()
+      .pipe(switchMap((uid) => {
+        return this.fs
+          .write(`${uid}/${name}`, {name, added: new Date()})
+          .pipe(first());
+      }), first());
+  }
+
 }
+
+
+

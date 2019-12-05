@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { allAppRoutes } from './routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { OpenWeatherService } from './open-weather.service';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatRadioModule } from '@angular/material/radio';
@@ -19,6 +19,9 @@ import { AddCardComponent } from './cards/add-card/add-card.component';
 import { LoginComponent } from './login/login.component';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import { DetailsComponent } from './details/details.component';
+import {AngularFireLite} from 'angularfire-lite';
+import {environment} from '../environments/environment';
+import { FirebaseAppModule } from 'ng-firebase-lite';
 
 
 @NgModule({
@@ -43,8 +46,10 @@ import { DetailsComponent } from './details/details.component';
     MatSidenavModule,
     MatRadioModule,
     NguiAutoCompleteModule,
+    FirebaseAppModule.initializeApp(environment.config),
+    AngularFireLite.forRoot(environment.config)
   ],
-  providers: [OpenWeatherService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
