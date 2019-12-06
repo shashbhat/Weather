@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup} from '@angular/forms';
 import {WeatherService} from 'src/app/services/weather.service';
 import {FbService} from '../services/fb.service';
 import {Subscription} from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-weather',
@@ -25,7 +27,8 @@ export class WeatherComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private weatherService: WeatherService,
-    public fb: FbService
+    public fb: FbService,
+    private toastrService: ToastrService
     ) { }
 
   ngOnInit() {
@@ -35,7 +38,13 @@ export class WeatherComponent implements OnInit {
   }
 
   sendToOpenWeather(formValues) {
-    this.weatherService.getWeather(formValues.location).subscribe(data => this.weatherData = data);
+    this.weatherService.getWeather(formValues.location).subscribe(data => {
+      this.weatherData = data;
+      this.showWeather(); },
+      (err) => {
+      this.errorMessage = err.error.message;
+      this.toastrService.error('Cannot find city');
+    });
     console.log(this.weatherData);
   }
 
@@ -50,8 +59,8 @@ export class WeatherComponent implements OnInit {
       this.minTemp = null;
       this.state = null;
       this.temp = null;
-      this.cityAdded = true;
-      setTimeout(() => this.cityAdded = false, 2000);
+      this.toastrService.success('Added successfully');
     });
   }
+
 }

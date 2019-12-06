@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {Router, NavigationStart} from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'weather-app';
+  showHead = false;
+
+  constructor(private router: Router) {
+    // on route change to '/login', set the variable showHead to false
+      router.events.forEach((event) => {
+        if (event instanceof NavigationStart) {
+          if (event.url === '/login') {
+            this.showHead = false;
+          } else {
+            this.showHead = true;
+          }
+        }
+      });
+    }
 }

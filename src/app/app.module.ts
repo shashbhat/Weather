@@ -22,6 +22,8 @@ import { DetailsComponent } from './details/details.component';
 import {AngularFireLite} from 'angularfire-lite';
 import {environment} from '../environments/environment';
 import { FirebaseAppModule } from 'ng-firebase-lite';
+import {ToastrModule} from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -46,11 +48,10 @@ import { FirebaseAppModule } from 'ng-firebase-lite';
     MatSidenavModule,
     MatRadioModule,
     NguiAutoCompleteModule,
-    FirebaseAppModule.initializeApp(environment.config),
-    AngularFireLite.forRoot(environment.config)
+    AngularFireLite.forRoot(environment.config),
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-  

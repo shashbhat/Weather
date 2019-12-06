@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "weather-app",
+      "public": "dist/weather-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

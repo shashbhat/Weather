@@ -17,7 +17,7 @@ export class WeatherCardComponent implements OnInit {
     console.log(this.cityName);
     this.weather.getWeather(this.cityName).subscribe(data => this.weatherData = data);
   }
-
+  @Output() cityStored = new EventEmitter();
   state: string;
   temp: number;
   maxTemp: number;
@@ -38,6 +38,10 @@ export class WeatherCardComponent implements OnInit {
     this.maxTemp = this.weatherData.main.temp_max;
     this.minTemp = this.weatherData.main.temp_min;
     console.log(this.temp);
+  }
+
+  openDetails() {
+      this.router.navigateByUrl('/details/' + this.cityName);
   }
 
 }

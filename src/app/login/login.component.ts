@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FbService } from '../services/fb.service';
 import { first, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   errorMessage = '';
-  constructor(public fb: FbService, public router: Router) { }
+  constructor(public fb: FbService, public router: Router, public toastrService: ToastrService) { }
 
   ngOnInit() {
     const signUpButton = document.getElementById('signUp');
@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
     }, (err) => {
       this.errorMessage = err;
       setTimeout(() => this.errorMessage = '', 2000);
+      this.toastrService.error('Username or Password not found!');
     });
   }
 

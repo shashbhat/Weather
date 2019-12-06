@@ -24,7 +24,7 @@ export const allAppRoutes: Routes = [
         canActivate: [AppGuard]
     },
     {
-        path: 'details',
+        path: 'details/:city',
         component: DetailsComponent,
         canActivate: [AppGuard]
     },
@@ -34,4 +34,6 @@ export const allAppRoutes: Routes = [
         canActivate: [AppGuard]
     },
     {path: '**', redirectTo: ''}
-]
+];
+
+

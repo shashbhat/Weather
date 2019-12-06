@@ -1,7 +1,7 @@
-<section class="weather__card" routerLink='/details'>
+<section class="weather__card" (click)="openDetails()">
         <!-- TODO: make the city name dynamic -->
         <span class="city-name__text">{{cityName}}</span>
-          <div class="weather-icon__container" [ngSwitch]="true">
+          <!-- <div class="weather-icon__container" [ngSwitch]="true">
       
             <svg *ngSwitchCase="condition === 'Clouds'">
               </svg>
@@ -17,11 +17,11 @@
               </svg>
 
             <svg  *ngSwitchCase="condition === 'Fog'"></svg>
-          </div>
+          </div> -->
           <div class="temperature-text__container">
               <span class="temperature__text">{{weatherData.main.temp}}</span>
               <span class="temperature-metric__text">°</span>
-              <span class="weather-condition__text">{{ condition }}</span>
+              <span class="weather-condition__text"></span>
           </div>
           <section class="min-max__container">
               <div class="min__container">

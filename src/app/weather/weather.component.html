@@ -1,84 +1,79 @@
 <div class="container">
 
 
-  
-    <svg class="back__button" routerLink="" viewBox="4085 152 98.5 126" tabindex="0">
-        <defs>
-          <style>.a {
-            fill: #2b244d;
-          }
-    
-          .b {
-            fill: rgba(0, 0, 0, 0);
-          }
-  
-          .b, .c {
-            stroke: #fff;
-            stroke-width: 2px;
-          }
-    
-          .c {
-            fill: none;
-          }
-    
-          .d {
-            fill: #fff;
-            font-size: 15px;
-            font-family: SegoeUI, Segoe UI, sans-serif;
-            letter-spacing: 0.4em;
-          }</style>
-        </defs>
-        <g transform="translate(3980)">
-          <circle class="a" cx="39" cy="39" r="39" transform="translate(105 152)"></circle>
-          <line class="b" transform="translate(123.5 190.5)" x1="80"></line>
-          <line class="b" transform="translate(123.5 164.5)" x2="26" y1="26"></line>
-          <line class="c" transform="translate(123.5 190.5)" x1="26" y1="27"></line>
-          <text class="d" transform="translate(117 274)">
-            <tspan x="0" y="0">BACK</tspan>
-          </text>
-        </g>
-      </svg>
 
-      
+  <svg class="back__button" routerLink="" viewBox="4085 152 98.5 126" tabindex="0">
+    <defs>
+      <style>
+        .a {
+          fill: #2b244d;
+        }
+
+        .b {
+          fill: rgba(0, 0, 0, 0);
+        }
+
+        .b,
+        .c {
+          stroke: #fff;
+          stroke-width: 2px;
+        }
+
+        .c {
+          fill: none;
+        }
+
+        .d {
+          fill: #fff;
+          font-size: 15px;
+          font-family: SegoeUI, Segoe UI, sans-serif;
+          letter-spacing: 0.4em;
+        }
+
+      </style>
+    </defs>
+    <g transform="translate(3980)">
+      <circle class="a" cx="39" cy="39" r="39" transform="translate(105 152)"></circle>
+      <line class="b" transform="translate(123.5 190.5)" x1="80"></line>
+      <line class="b" transform="translate(123.5 164.5)" x2="26" y1="26"></line>
+      <line class="c" transform="translate(123.5 190.5)" x1="26" y1="27"></line>
+      <text class="d" transform="translate(117 274)">
+        <tspan x="0" y="0">BACK</tspan>
+      </text>
+    </g>
+  </svg>
+
+
   <div class="add-wrapper">
-
-
-
-
-
-
-
 
     <section class="main-card">
 
-    <div class="city-search-wrapper">
-    
-
-      <div class="city-search-header">
-        <h3 class="city-search-title">SEARCH CITIES</h3>
-        <div class="search-city-input-wrapper">
-
-          <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToOpenWeather(weatherSearchForm.value)">
-            <input class="form-control search-city-input" type="text" placeholder="Enter city"
-              formControlName="location">
-
-            <button class="search-city-btn" type="submit" (click)="showWeather()">
-              <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
-                <path fill="#FFF"
-                  d="M447 428L337.6 318.4A192.5 192.5 0 0 0 192.4 0C86.3 0 0 86.3 0 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126-47.2L428.2 447a13.2 13.2 0 0 0 19 0 13.5 13.5 0 0 0 0-19zM27 192.3C27 101.1 101 27 192.3 27c91.1 0 165.3 74.2 165.3 165.3s-74.2 165.4-165.4 165.4A165.6 165.6 0 0 1 27 192.3z">
-                </path>
-              </svg>
-            </button>
-          </form>
-        </div>
-        <span class="city-search-hr">O O O</span>
-      </div>
+      <div class="city-search-wrapper">
 
 
-      <section class="weather__card" id="weather-card" style="display: none;">
-        <!-- TODO: make the city name dynamic -->
-        <span class="city-name__text">{{this.weatherData?.name}}</span>
-          <div class="weather-icon__container" [ngSwitch]="true">
+        <div class="city-search-header">
+          <h3 class="city-search-title">SEARCH CITIES</h3>
+          <div class="search-city-input-wrapper">
+
+            <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToOpenWeather(weatherSearchForm.value)">
+              <input class="form-control search-city-input" type="text" placeholder="Enter city"
+                formControlName="location">
+
+              <button class="search-city-btn" type="submit">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+                  <path fill="#FFF"
+                    d="M447 428L337.6 318.4A192.5 192.5 0 0 0 192.4 0C86.3 0 0 86.3 0 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126-47.2L428.2 447a13.2 13.2 0 0 0 19 0 13.5 13.5 0 0 0 0-19zM27 192.3C27 101.1 101 27 192.3 27c91.1 0 165.3 74.2 165.3 165.3s-74.2 165.4-165.4 165.4A165.6 165.6 0 0 1 27 192.3z">
+                  </path>
+                </svg>
+              </button>
+            </form>
+          </div>
+          <span class="city-search-hr">O O O</span>
+
+        <section class="weather__card" id="weather-card" style="display: none;">
+          <!-- TODO: make the city name dynamic -->
+          <span class="city-name__text">{{this.weatherData?.name}}</span>
+          <!-- <div class="weather-icon__container" [ngSwitch]="true">
       
             <svg *ngSwitchCase="condition === 'Clouds'">
               </svg>
@@ -94,38 +89,53 @@
               </svg>
       
             <svg  *ngSwitchCase="condition === 'Fog'"></svg>
-          </div>
-          <div class="temperature-text__container">
-              <span class="temperature__text">{{this.weatherData?.main.temp}}</span>
-              <span class="temperature-metric__text">°C</span>
-              <span class="weather-condition__text"></span>
+          </div> -->
+          <div class="temperature-text__container" >
+            <span class="temperature__text">{{this.weatherData?.main.temp}}</span>
+            <span class="temperature-metric__text">°C</span>
+            <span class="weather-condition__text"></span>
           </div>
           <section class="min-max__container">
-              <div class="min__container">
-                  <svg class="min-arrow__icon" viewBox="188.5 807 21 21">
-                      <path fill="#00ff9b" d="M209.5 817.5h-21L199 828z" data-name="Min Arrow"/>
-                  </svg>
-      
-                  <span class="min-temperature__text">25</span>
-                  <span class="min__text">Min</span>
-              </div>
-              <div class="max__container">
-                  <svg class="max-arrow__icon" viewBox="449.5 820 21 21">
-                      <path fill="red" d="M449.5 830.5h21L460 820z" data-name="Max Arrow"/>
-                  </svg>
-                  <span class="max-temperature__text">32</span>
-                  <span class="max__text">Max</span>
-              </div>
+            <div class="min__container">
+              <svg class="min-arrow__icon" viewBox="188.5 807 21 21">
+                <path fill="#00ff9b" d="M209.5 817.5h-21L199 828z" data-name="Min Arrow" />
+              </svg>
+
+              <span class="min-temperature__text">{{this.weatherData?.main.temp_min}}</span>
+              <span class="min__text">Min</span>
+            </div>
+            <div class="max__container">
+              <svg class="max-arrow__icon" viewBox="449.5 820 21 21">
+                <path fill="red" d="M449.5 830.5h21L460 820z" data-name="Max Arrow" />
+              </svg>
+              <span class="max-temperature__text">{{this.weatherData?.main.temp_max}}</span>
+              <span class="max__text">Max</span>
+            </div>
           </section>
           <button class="add-city-btn" (click)="addCity()">ADD CITY +</button>
-      </section>
+        </section>
 
 
-    </div>
-    
+        <div class="city-added-note" id="city-added-note" style="display: none;">
+          <h5 class="add-success-text">City has been successfully added!</h5>
+          <svg viewBox="0 0 50 50" height="5rem">
+            <circle cx="25" cy="25" r="25" fill="#25ae88"/>
+            <path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                  stroke-width="2"
+                  d="M38 15L22 33l-10-8"/>
+          </svg>
+        </div>
+
+        </div>
+
+
+      </div>
+
 
     </section>
+
   </div>
+
 
 </div>
 

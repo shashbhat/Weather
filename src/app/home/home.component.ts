@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FbService} from '../services/fb.service'
+import {FbService} from '../services/fb.service';
 
 @Component({
   selector: 'app-home',
