@@ -34,7 +34,6 @@ export class WeatherCardComponent implements OnInit {
   }
 
   getWeather() {
-   
     this.temp = this.weatherData.main.temp;
     this.maxTemp = this.weatherData.main.temp_max;
     this.minTemp = this.weatherData.main.temp_min;
@@ -42,3 +41,4 @@ export class WeatherCardComponent implements OnInit {
   }
 
 }
+
