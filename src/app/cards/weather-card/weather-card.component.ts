@@ -15,7 +15,7 @@ export class WeatherCardComponent implements OnInit {
   @Input() set city(city: string) {
     this.cityName = city;
     console.log(this.cityName);
-    this.weather.getWeather('LONDON').subscribe(data => this.weatherData = data);
+    this.weather.getWeather(this.cityName).subscribe(data => this.weatherData = data);
   }
 
   state: string;

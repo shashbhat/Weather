@@ -391,3 +391,14 @@ Weather Card Styling
 .weather-icon__container > svg {
   width: 10rem;
 }
+
+
+.back__button {
+  position: absolute;
+  top: 3rem;
+  left: 3.25rem;
+  width: 5rem;
+  cursor: pointer;
+  z-index: 6;
+  margin-top: 2rem;
+}
