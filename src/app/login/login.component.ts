@@ -3,6 +3,8 @@ import { FbService } from '../services/fb.service';
 import { first, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import {Validators, FormBuilder} from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
   errorMessage = '';
-  constructor(public fb: FbService, public router: Router, public toastrService: ToastrService) { }
+
+  constructor(public fb: FbService, public router: Router, public toastrService: ToastrService, public formb: FormBuilder) { }
 
   ngOnInit() {
     const signUpButton = document.getElementById('signUp');
@@ -20,7 +23,6 @@ export class LoginComponent implements OnInit {
     signUpButton.addEventListener('click', () => container.classList.add('right-panel-active'));
 
     signInButton.addEventListener('click', () => container.classList.remove('right-panel-active'));
-
 
   }
 

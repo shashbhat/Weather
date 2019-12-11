@@ -43,7 +43,7 @@ export class WeatherComponent implements OnInit {
       this.showWeather(); },
       (err) => {
       this.errorMessage = err.error.message;
-      this.toastrService.error('Cannot find city');
+      this.toastrService.error('City Not Found');
     });
     console.log(this.weatherData);
   }

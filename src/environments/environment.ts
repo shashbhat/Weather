@@ -14,7 +14,8 @@ export const environment = {
     messagingSenderId: '680519943142',
     appId: '1:680519943142:web:4bac1296c7a84f619f8c27',
     measurementId: 'G-5X1NMNG8RC'
-  } as FirebaseAppConfig
+  } as FirebaseAppConfig,
+  apiKey : '4ae8e061928906b46910cef2cf235173'
 };
 
 /*

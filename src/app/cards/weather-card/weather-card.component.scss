@@ -9,7 +9,7 @@ Weather Card Styling
     grid-template-rows: 1fr 1fr 1fr;
     box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1);
     justify-items: center;
-    padding: 2rem;
+    padding-top: 2rem;
     margin: 2rem;
     width: 20rem;
     height: 30rem;
@@ -19,10 +19,6 @@ Weather Card Styling
     animation: 1.25s ease-in-out 0ms 1 fadein;
   }
   
-  .weather__card-dark {
-    background: linear-gradient(to bottom, #711B86, #00057A);
-    color: white;
-  }
   
   .city-name__text {
     text-transform: uppercase;
@@ -93,13 +89,13 @@ Weather Card Styling
     font-size: 2rem;
   }
   
-  .weather-icon__container {
-    width: 10rem;
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: center;
-  }
+  // .weather-icon__container {
+  //   width: 10rem;
+  //   margin-bottom: 2rem;
+  //   display: flex;
+  //   justify-content: center;
+  // }
   
-  .weather-icon__container > svg {
-    width: 10rem;
-  }
+  // .weather-icon__container > svg {
+  //   width: 10rem;
+  // }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class WeatherService {
   private readonly url = 'https://api.openweathermap.org/data/2.5/weather?&units=metric&q=';
   private readonly forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?&units=metric&q=';
-  private readonly appID = '4ae8e061928906b46910cef2cf235173';
+  private readonly appID = environment.apiKey ;
   constructor(public http: HttpClient) { }
 
   getWeather(city: string) {
